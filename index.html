@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang='id'>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
-    <title>Dompet Bifold Classic Simple | Toko SimpleC</title>
+    <!-- PERHATIAN: Judul halaman masih statis. Jika Anda ingin ini otomatis, Anda harus menggunakan platform seperti Blogger/Wordpress. -->
+    <title>Dompet Bifold Classic Simple | Toko Dompet</title>
     
     <!-- Google Fonts & Icons -->
     <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap' rel='stylesheet'/>
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
 
-    <!-- START: FACEBOOK PIXEL CODE - INSTALASI UTAMA (CLEAN) -->
+    <!-- START: FACEBOOK PIXEL CODE - INSTALASI UTAMA -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -20,26 +21,11 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    // --- KONFIGURASI PRODUK UNTUK PIXEL ---
     const PIXEL_ID = '688701849158753'; 
-    const PRODUCT_DATA = {
-        content_name: 'Dompet Bifold Classic Simple', // <-- FIX 1: Nama Produk diperbarui
-        value: 35000.00, // <-- FIX 1: Harga diperbarui
-        currency: 'IDR',
-        content_ids: ['SKU-DB-002'], // ID Produk Statis
-        content_type: 'product'
-    };
 
     fbq('init', PIXEL_ID);
-    fbq('track', 'PageView');
-    
-    // TRACKING: ViewContent (Ditembakkan saat produk dilihat)
-    setTimeout(() => {
-        if (typeof fbq === 'function') {
-            fbq('track', 'ViewContent', PRODUCT_DATA);
-            console.log("Pixel Event: ViewContent Fired. (Dompet Dilihat)");
-        }
-    }, 50); 
+    // PageView tetap di sini karena harus ditembakkan secepatnya
+    fbq('track', 'PageView'); 
     </script>
     <noscript>
         <img height="1" width="1" style="display:none"
@@ -242,8 +228,10 @@
 
     <div class='detail-content'>
         <div class='product-header'>
+            <!-- Elemen ini menjadi SUMBER DATA HARGA OTOMATIS -->
             <span class='detail-price'>Rp 35.000</span> 
-            <h1 class='detail-title'>Promo 2 Dompet Bifold Classic Simple (Minimalis &amp; Premium)</h1>
+            <!-- Elemen ini menjadi SUMBER DATA NAMA OTOMATIS -->
+            <h1 class='detail-title' id="productNameDisplay">Promo 2 Dompet Bifold Classic Simple (Minimalis &amp; Premium)</h1>
         </div>
 
         <div class='variant-section'>
@@ -322,18 +310,36 @@
             var chatButton = document.getElementById('chatButton');
             var variantBoxes = document.querySelectorAll('.variant-box');
             
-            // Variabel Konfigurasi Diperbarui
+            // 1. OTOMATIS BACA HARGA DAN NAMA DARI HTML
+            const priceElement = document.querySelector('.detail-price');
+            const nameElement = document.getElementById('productNameDisplay');
+
+            let productPriceText = priceElement ? priceElement.textContent.trim() : '0';
+            // Bersihkan teks: Hapus 'Rp', titik (.), koma (,) dan spasi, hanya menyisakan digit (e.g., "Rp 35.000" -> "35000")
+            let cleanPriceString = productPriceText.replace(/[^\d]/g, ''); 
+            
+            // Konversi ke integer. Ini adalah data numerik yang dibutuhkan Meta Pixel.
+            const productPrice = parseInt(cleanPriceString) || 0; 
+            const productName = nameElement ? nameElement.textContent.trim() : 'Produk Tidak Dikenal';
+
+            // Variabel Konfigurasi Umum
             const waNumber = '6283832108529'; 
-            const productName = 'Dompet Bifold Classic Simple'; // <-- FIX 2: Nama produk di JS
-            const productPrice = 35000.00; // <-- Harga di JS
             
             const pixelProductData = {
                 content_name: productName,
-                value: productPrice, // <-- FIX 2: Harga produk di JS
+                value: productPrice, // Nilai sudah dibaca secara dinamis dan diubah ke numerik
                 currency: 'IDR',
-                content_ids: ['SKU-DB-002'],
+                content_ids: ['SKU-DB-002'], // ID produk tetap statis
                 content_type: 'product'
             };
+            
+            // --- PIXEL EVENT TRACKING (ViewContent) ---
+            // ViewContent ditembakkan setelah DOM siap dan harga sudah dibaca
+            if (typeof fbq === 'function') {
+                fbq('track', 'ViewContent', pixelProductData);
+                console.log(`[PIXEL] ViewContent Fired. Harga Otomatis: ${productPrice} IDR`);
+            }
+
 
             // --- Logika Slider Sederhana ---
             var imgArray = sliderContainer.querySelectorAll('.slider-item');
@@ -367,20 +373,19 @@
                     selectedVariant = this.getAttribute('data-variant');
                     
                     // 1. Update Tautan Beli Sekarang
-                    // FIX 3: Gunakan productName yang benar untuk link WA
                     var waText = encodeURIComponent(`Halo, saya mau beli ${productName} Warna ${selectedVariant}.`);
                     buyButton.href = `https://wa.me/${waNumber}?text=${waText}`;
 
                     // 2. TRACKING: AddToCart (Ditembakkan saat varian dipilih)
                     if (typeof fbq === 'function') {
                         fbq('track', 'AddToCart', pixelProductData);
-                        console.log(`Pixel Event: AddToCart Fired. (Varian ${selectedVariant} Dipilih)`);
+                        console.log(`[PIXEL] AddToCart Fired. (Varian ${selectedVariant} Dipilih)`);
                     }
                 });
             });
 
              // Panggil sekali saat dimuat untuk mengatur link default dan memicu AddToCart pertama
-             // Ini akan memicu event AddToCart pertama kali saat halaman dimuat
+             // Klik ini memastikan AddToCart terpicu segera setelah halaman dimuat dengan varian default.
              document.querySelector('.variant-box.active')?.click(); 
 
             // --- LOGIKA TRACKING PIXEL BUTTONS ---
@@ -390,7 +395,7 @@
                 chatButton.addEventListener('click', function() {
                     if (typeof fbq === 'function') {
                         fbq('track', 'Contact', pixelProductData);
-                        console.log("Pixel Event: Contact (Chat) Fired.");
+                        console.log("[PIXEL] Contact (Chat) Fired.");
                     }
                 });
             }
@@ -400,7 +405,7 @@
                 buyButton.addEventListener('click', function() {
                     if (typeof fbq === 'function') {
                         fbq('track', 'InitiateCheckout', pixelProductData);
-                        console.log("Pixel Event: InitiateCheckout (Beli Sekarang) Fired.");
+                        console.log("[PIXEL] InitiateCheckout (Beli Sekarang) Fired.");
                     }
                 });
             }
