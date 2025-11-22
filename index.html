@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang='id'>
+<head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+    <title>Nama Produk Anda di Sini | Toko ABC</title>
+
+    <!-- Google Fonts & Icons -->
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
+
+    <!-- START: FACEBOOK PIXEL CODE - FULL FUNNEL TRACKING -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    const PIXEL_ID = '688701849158753'; // ID PIXEL ANDA
+    const PRODUCT_DATA = {
+        content_name: 'Tas Selempang Pria Kulit Sintetis Premium',
+        value: 125000.00, // Harga Mockup (Rp 125.000)
+        currency: 'IDR',
+        content_ids: ['SKU-TS-001'], // ID Produk Statis
+        content_type: 'product'
+    };
+
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
+    
+    // TRACKING BARU: ViewContent (Ditembakkan saat produk dilihat)
+    // Menggunakan timeout 50ms untuk memastikan PageView selesai lebih dulu
+    setTimeout(() => {
+        fbq('track', 'ViewContent', PRODUCT_DATA);
+        console.log("Pixel Event: ViewContent Fired. (Produk Dilihat)");
+    }, 50); 
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=688701849158753&amp;ev=PageView&amp;noscript=1"
+        alt="Facebook Pixel"/>
+    </noscript>
+    <!-- END: FACEBOOK PIXEL CODE -->
+
+    <!-- CSS dari Blogger Skin dimasukkan langsung di sini -->
+    <style>
+    /* -----------------------------------------------
+       LANDING PAGE SHOPEE STYLE - CSS CONVERTED
+       -----------------------------------------------
+    */
+    :root {
+        --primary-color: #EE4D2D; /* Shopee Orange */
+        --text-dark: #2C3E50;
+        --text-gray: #757575;
+        --bg-light: #F8F9FA;
+        --white: #FFFFFF;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #eee;
+        margin: 0;
+        padding: 0;
+        color: var(--text-dark);
+        font-size: 14px;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .app-container {
+        max-width: 480px;
+        margin: 0 auto;
+        background: var(--white);
+        min-height: 100vh;
+        position: relative;
+        box-shadow: 0 0 50px rgba(0,0,0,0.1);
+        padding-bottom: 100px; /* Ruang untuk sticky footer */
+    }
+
+    /* SHOPEE SLIDER STYLE */
+    .slider-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 100%; /* Aspect Ratio 1:1 (Square) */
+        overflow: hidden;
+        background: #f5f5f5;
+    }
+
+    .product-slider {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Hide scrollbar Firefox */
+    }
+    .product-slider::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome */
+
+    .slider-item {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        scroll-snap-align: start;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+    }
+    
+    .slider-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .slider-indicator {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background: rgba(0,0,0,0.3);
+        color: #fff;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        pointer-events: none;
+    }
+
+    /* Content Area */
+    .detail-content { padding: 15px; position: relative; z-index: 2; }
+    
+    .product-header {
+        margin-bottom: 15px;
+    }
+    
+    .detail-price { 
+        font-size: 24px; 
+        color: var(--primary-color); 
+        font-weight: 600; 
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .detail-title { 
+        font-size: 16px; 
+        font-weight: 500; 
+        margin: 0; 
+        line-height: 1.4; 
+        color: #000;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .divider { height: 10px; background: #f5f5f5; margin: 15px -15px; border: none; }
+
+    .section-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .post-body { 
+        color: var(--text-dark); 
+        line-height: 1.6; 
+        font-size: 14px;
+    }
+    
+    /* Pilihan Varian Mockup */
+    .variant-section { margin: 15px 0; }
+    .variant-title { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+    .variant-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .variant-box { 
+        padding: 8px 20px; 
+        border: 1px solid #ddd; 
+        border-radius: 4px; 
+        font-size: 13px;
+        color: #333;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .variant-box:hover {
+        background: #f0f0f0;
+    }
+    .variant-box.active { 
+        border-color: var(--primary-color); 
+        color: var(--primary-color); 
+        background: rgba(238, 77, 45, 0.05); 
+    }
+
+    /* Sticky Footer */
+    .sticky-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 480px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        z-index: 999;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        height: 60px;
+    }
+    
+    .chat-btn {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #25D366; /* WA Color */
+        color: white;
+        font-size: 10px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .chat-btn:hover { background: #1faa54; }
+    
+    .btn-buy {
+        background: var(--primary-color);
+        color: #fff;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        flex-grow: 1;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .btn-buy:hover { background: #d64528; }
+    
+    .hidden { display: none; }
+    
+    </style>
+</head>
+<body>
+
+<div class='app-container'>
+
+    <!-- Konten Statis yang menggantikan loop Blog1 -->
+    
+    <!-- SLIDER AREA -->
+    <div class='slider-wrapper'>
+        <div class='product-slider' id='productSlider'>
+            <!-- GAMBAR CONTOH (Ganti URL gambar ini dengan gambar Anda sendiri) -->
+            <div class='slider-item'>
+                <img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXIP9o4Wn5c0pxRqrUSFHgbWmh9wTnG9sCNaGQE_E7GSSAaH0G3vGHo4EwMtx2QLDPIYqbTIX1iZ8QDxQdUHWbSEs7fsZiunhT6hyphenhyphenEGeie_iizllNGtQZJyZoQQnJeBCZgxo9FCJJOGvQguFf83jZPoGltaZ4iJ7BoiH4RrX6FLTV7Eig6P1VnO-7qJL8/s700/Shopee_839be486c87a06679f92f864b1fc948c.jpg' alt='Gambar Produk 1'/>
+            </div>
+            <div class='slider-item'>
+                <img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmJJNB7G54zgiTkLyl67Bj-szTZni4SzyQjBv4PhE04pucW5MXScGu2Svurp1EF1akl7vlL4oNmOMs2bKysdXC-zm8N1f3ECIyedok9-aErLjTjH0SLeeR8BmRsKYYr2-QzBjzLuAyN7gO-WdLLmwtpsuAjK5BoooA5E7XjZFiT5H-2bImnhAx9tN9k00/s800/9489.jpg' alt='Gambar Produk 2'/>
+            </div>
+            <div class='slider-item'>
+                <img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPFFhGV1MgGOoeNdUJ0HRCB_lGO-uEMHgxaq5mTkiK2X85QyZWJuNcxo19PVQ4zEW2TDU3fwNemKcQAQtCVQpeDUPVjxikdUaQXzh_5Yq5K8FVv07Jx2vIQ5OWvMGC1jFrSIGX2Fe0V4AuT3j_4Kn0pU3WQv6rRIPIIiDmdQL-BdBfetTlmHWD9BqCNrg/s800/9488.jpg' alt='Gambar Produk 3'/>
+            </div>
+        </div>
+        <div class='slider-indicator' id='sliderCounter'>1/3</div>
+    </div>
+
+    <div class='detail-content'>
+        <div class='product-header'>
+            <!-- Harga dan Judul diisi manual menggantikan data:post.labels.first.name dan data:post.title -->
+            <span class='detail-price'>Rp 125.000</span> 
+            <h1 class='detail-title'>Tas Selempang Pria Kulit Sintetis Premium Terbaru (Contoh Judul)</h1>
+        </div>
+
+        <div class='variant-section'>
+            <div class='variant-title'>Tersedia Warna</div>
+            <div class='variant-row'>
+                <!-- Pilihan Varian Statis - Klik di sini akan memicu AddToCart -->
+                <div class='variant-box' data-variant='Hitam'>Hitam</div>
+                <div class='variant-box active' data-variant='Coklat'>Coklat</div>
+                <div class='variant-box' data-variant='Biru'>Biru Navy</div>
+            </div>
+        </div>
+
+        <hr class='divider'/>
+
+        <div class='section-title'>Rincian Produk & Deskripsi</div>
+        <div class='post-body' id='postBodyContent'>
+            <!-- Konten Deskripsi Produk (Menggantikan data:post.body) -->
+            <p>Deskripsi produk ini adalah konten statis. Anda dapat mengeditnya sesuai kebutuhan. Template ini meniru tampilan halaman produk Shopee dan sangat cocok untuk landing page produk tunggal.</p>
+            <ul>
+                <li>Bahan: Kulit Sintetis Premium</li>
+                <li>Ukuran: 25cm x 15cm x 5cm</li>
+                <li>Fitur: Tahan air, kantong multifungsi.</li>
+            </ul>
+            <p>Klik 'Beli Sekarang' untuk memulai pemesanan via WhatsApp, dan 'Chat' jika Anda memiliki pertanyaan.</p>
+        </div>
+    </div>
+    
+    <!-- Sticky Footer Shopee Style -->
+    <div class='sticky-footer'>
+        <!-- ID chatButton ditambahkan untuk tracking Pixel -->
+        <a class='chat-btn' id='chatButton' href='https://wa.me/6283832108529?text=Halo,%20saya%20mau%20bertanya%20tentang%20produk%20[Nama%20Produk%20Anda].' target='_blank'>
+            <span class='material-icons' style='font-size:20px;'>chat</span>
+            <span>Chat</span>
+        </a>
+        <!-- ID buyButton sudah ada, tautan WA diperbarui -->
+        <a class='btn-buy' id='buyButton' href='https://wa.me/6283832108529?text=Halo,%20saya%20mau%20beli%20Tas%20Selempang%20Pria%20Warna%20Coklat.' target='_blank'>
+            Beli Sekarang
+        </a>
+    </div>
+
+    <!-- SCRIPT KHUSUS SLIDER & VARIAN, DITAMBAH EVENT PIXEL -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var sliderContainer = document.getElementById('productSlider');
+            var counter = document.getElementById('sliderCounter');
+            var buyButton = document.getElementById('buyButton');
+            var chatButton = document.getElementById('chatButton'); 
+            var variantBoxes = document.querySelectorAll('.variant-box');
+            
+            // Variabel Konfigurasi
+            const waNumber = '6283832108529'; 
+            const productName = 'Tas Selempang Pria';
+            const pixelProductData = {
+                content_name: productName,
+                value: 125000.00, 
+                currency: 'IDR',
+                content_ids: ['SKU-TS-001'],
+                content_type: 'product'
+            };
+
+
+            // --- Logika Slider Sederhana (TIDAK BERUBAH) ---
+            var imgArray = sliderContainer.querySelectorAll('.slider-item');
+            var totalSlides = imgArray.length;
+
+            if (totalSlides > 0) {
+                counter.innerText = "1/" + totalSlides;
+                
+                sliderContainer.addEventListener('scroll', function() {
+                    var scrollLeft = sliderContainer.scrollLeft;
+                    var width = sliderContainer.offsetWidth;
+                    var index = Math.round(scrollLeft / width) + 1; 
+                    if (index > totalSlides) index = totalSlides; 
+                    if (index < 1) index = 1;
+
+                    counter.innerText = index + "/" + totalSlides;
+                });
+            } else {
+                sliderContainer.innerHTML = "<div class='slider-item' style='color:#aaa; font-size: 16px; background: #fff;'>Tidak Ada Gambar Produk</div>";
+                counter.innerText = "0/0";
+            }
+
+            // --- LOGIKA VARIAN DAN ADD TO CART ---
+            let selectedVariant = 'Coklat'; 
+
+            variantBoxes.forEach(box => {
+                box.addEventListener('click', function() {
+                    variantBoxes.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    selectedVariant = this.getAttribute('data-variant');
+                    
+                    // 1. Update Tautan Beli Sekarang
+                    var waText = encodeURIComponent(`Halo, saya mau beli ${productName} Warna ${selectedVariant}.`);
+                    buyButton.href = `https://wa.me/${waNumber}?text=${waText}`;
+
+                    // 2. TRACKING BARU: AddToCart (Ditembakkan saat varian dipilih)
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'AddToCart', pixelProductData);
+                        console.log(`Pixel Event: AddToCart Fired. (Varian ${selectedVariant} Dipilih)`);
+                    }
+                });
+            });
+
+             // Panggil sekali saat dimuat untuk mengatur link default dan memicu AddToCart pertama
+             document.querySelector('.variant-box.active')?.click(); 
+
+            // --- LOGIKA TRACKING PIXEL BUTTONS ---
+
+            // 1. Tracking Tombol Chat (Contact)
+            if (chatButton) {
+                chatButton.addEventListener('click', function() {
+                    // Memicu event 'Contact' (Kontak)
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Contact', pixelProductData);
+                        console.log("Pixel Event: Contact (Chat) Fired.");
+                    }
+                });
+            }
+
+            // 2. Tracking Tombol Beli Sekarang (InitiateCheckout)
+            if (buyButton) {
+                buyButton.addEventListener('click', function() {
+                    // Memicu event 'InitiateCheckout' (Memulai Checkout)
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'InitiateCheckout', pixelProductData);
+                        console.log("Pixel Event: InitiateCheckout (Beli Sekarang) Fired.");
+                    }
+                });
+            }
+        });
+    </script>
+
+</div>
+</body>
+</html>
+
