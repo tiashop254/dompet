@@ -18,10 +18,10 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    const PIXEL_ID = '688701849158753'; 
-
-    fbq('init', PIXEL_ID);
-    // PageView tetap di sini karena harus ditembakkan secepatnya
+    // Inisialisasi hanya dengan ID yang benar: 688701849158753
+    fbq('init', '688701849158753'); 
+    
+    // PageView Event (Base Code)
     fbq('track', 'PageView'); 
     </script>
     <noscript>
@@ -321,7 +321,7 @@
             };
             
             // --- PIXEL EVENT TRACKING (ViewContent) ---
-            // ViewContent ditembakkan setelah DOM siap dan harga sudah dibaca
+            // Pengecekan typeof fbq === 'function' memastikan fungsi hanya dipanggil jika Pixel sudah berhasil dimuat (di bagian <head>).
             if (typeof fbq === 'function') {
                 fbq('track', 'ViewContent', pixelProductData);
                 console.log(`[PIXEL] ViewContent Fired. Harga Otomatis: ${productPrice} IDR`);
