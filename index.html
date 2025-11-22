@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
-    <title>Dompet Bifold Classic SimpleC</title>
-
+    <title>Dompet Bifold Classic Simple | Toko SimpleC</title>
+    
     <!-- Google Fonts & Icons -->
     <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap' rel='stylesheet'/>
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
 
-    <!-- START: FACEBOOK PIXEL CODE - FULL FUNNEL TRACKING -->
+    <!-- START: FACEBOOK PIXEL CODE - INSTALASI UTAMA (CLEAN) -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -20,23 +20,25 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    const PIXEL_ID = '688701849158753'; // ID PIXEL ANDA
+    // --- KONFIGURASI PRODUK UNTUK PIXEL ---
+    const PIXEL_ID = '688701849158753'; 
     const PRODUCT_DATA = {
-        content_name: 'Dompet Bifold Classic Simple',
-        value: 35000.00, // Harga Mockup (Rp 35.000)
+        content_name: 'Dompet Bifold Classic Simple', // <-- FIX 1: Nama Produk diperbarui
+        value: 35000.00, // <-- FIX 1: Harga diperbarui
         currency: 'IDR',
-        content_ids: ['SKU-TS-001'], // ID Produk Statis
+        content_ids: ['SKU-DB-002'], // ID Produk Statis
         content_type: 'product'
     };
 
     fbq('init', PIXEL_ID);
     fbq('track', 'PageView');
     
-    // TRACKING BARU: ViewContent (Ditembakkan saat produk dilihat)
-    // Menggunakan timeout 50ms untuk memastikan PageView selesai lebih dulu
+    // TRACKING: ViewContent (Ditembakkan saat produk dilihat)
     setTimeout(() => {
-        fbq('track', 'ViewContent', PRODUCT_DATA);
-        console.log("Pixel Event: ViewContent Fired. (Produk Dilihat)");
+        if (typeof fbq === 'function') {
+            fbq('track', 'ViewContent', PRODUCT_DATA);
+            console.log("Pixel Event: ViewContent Fired. (Dompet Dilihat)");
+        }
     }, 50); 
     </script>
     <noscript>
@@ -48,10 +50,7 @@
 
     <!-- CSS dari Blogger Skin dimasukkan langsung di sini -->
     <style>
-    /* -----------------------------------------------
-       LANDING PAGE SHOPEE STYLE - CSS CONVERTED
-       -----------------------------------------------
-    */
+    /* ----------------------------------------------- LANDING PAGE SHOPEE STYLE - CSS CONVERTED ----------------------------------------------- */
     :root {
         --primary-color: #EE4D2D; /* Shopee Orange */
         --text-dark: #2C3E50;
@@ -59,7 +58,6 @@
         --bg-light: #F8F9FA;
         --white: #FFFFFF;
     }
-
     body {
         font-family: 'Poppins', sans-serif;
         background-color: #eee;
@@ -68,10 +66,8 @@
         color: var(--text-dark);
         font-size: 14px;
     }
-
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
-
     .app-container {
         max-width: 480px;
         margin: 0 auto;
@@ -81,7 +77,6 @@
         box-shadow: 0 0 50px rgba(0,0,0,0.1);
         padding-bottom: 100px; /* Ruang untuk sticky footer */
     }
-
     /* SHOPEE SLIDER STYLE */
     .slider-wrapper {
         position: relative;
@@ -90,7 +85,6 @@
         overflow: hidden;
         background: #f5f5f5;
     }
-
     .product-slider {
         position: absolute;
         top: 0; left: 0;
@@ -103,7 +97,6 @@
         scrollbar-width: none; /* Hide scrollbar Firefox */
     }
     .product-slider::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome */
-
     .slider-item {
         flex: 0 0 100%;
         width: 100%;
@@ -114,13 +107,11 @@
         justify-content: center;
         background: #fff;
     }
-    
     .slider-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
-
     .slider-indicator {
         position: absolute;
         bottom: 15px;
@@ -133,14 +124,9 @@
         font-weight: 600;
         pointer-events: none;
     }
-
     /* Content Area */
     .detail-content { padding: 15px; position: relative; z-index: 2; }
-    
-    .product-header {
-        margin-bottom: 15px;
-    }
-    
+    .product-header { margin-bottom: 15px; }
     .detail-price { 
         font-size: 24px; 
         color: var(--primary-color); 
@@ -148,7 +134,6 @@
         display: block;
         margin-bottom: 5px;
     }
-
     .detail-title { 
         font-size: 16px; 
         font-weight: 500; 
@@ -160,9 +145,7 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
-    
     .divider { height: 10px; background: #f5f5f5; margin: 15px -15px; border: none; }
-
     .section-title {
         font-size: 14px;
         font-weight: 600;
@@ -170,13 +153,7 @@
         margin-bottom: 10px;
         text-transform: uppercase;
     }
-
-    .post-body { 
-        color: var(--text-dark); 
-        line-height: 1.6; 
-        font-size: 14px;
-    }
-    
+    .post-body { color: var(--text-dark); line-height: 1.6; font-size: 14px; }
     /* Pilihan Varian Mockup */
     .variant-section { margin: 15px 0; }
     .variant-title { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
@@ -190,15 +167,12 @@
         cursor: pointer;
         transition: all 0.2s;
     }
-    .variant-box:hover {
-        background: #f0f0f0;
-    }
+    .variant-box:hover { background: #f0f0f0; }
     .variant-box.active { 
         border-color: var(--primary-color); 
         color: var(--primary-color); 
         background: rgba(238, 77, 45, 0.05); 
     }
-
     /* Sticky Footer */
     .sticky-footer {
         position: fixed;
@@ -215,7 +189,6 @@
         box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
         height: 60px;
     }
-    
     .chat-btn {
         width: 60px;
         height: 60px;
@@ -230,7 +203,6 @@
         transition: background 0.2s;
     }
     .chat-btn:hover { background: #1faa54; }
-    
     .btn-buy {
         background: var(--primary-color);
         color: #fff;
@@ -245,31 +217,24 @@
         transition: background 0.2s;
     }
     .btn-buy:hover { background: #d64528; }
-    
     .hidden { display: none; }
-    
     </style>
 </head>
 <body>
 
 <div class='app-container'>
-
-    <!-- Konten Statis yang menggantikan loop Blog1 -->
     
     <!-- SLIDER AREA -->
     <div class='slider-wrapper'>
         <div class='product-slider' id='productSlider'>
-            <!-- GAMBAR CONTOH (Ganti URL gambar ini dengan gambar Anda sendiri) -->
-           
             <div class='slider-item'>
-                <img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmJJNB7G54zgiTkLyl67Bj-szTZni4SzyQjBv4PhE04pucW5MXScGu2Svurp1EF1akl7vlL4oNmOMs2bKysdXC-zm8N1f3ECIyedok9-aErLjTjH0SLeeR8BmRsKYYr2-QzBjzLuAyN7gO-WdLLmwtpsuAjK5BoooA5E7XjZFiT5H-2bImnhAx9tN9k00/s800/9489.jpg' alt='Gambar Produk 2'/>
+                <img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmJJNB7G54zgiTkLyl67Bj-szTZni4SzyQjBv4PhE04pucW5MXScGu2Svurp1EF1akl7vlL4oNmOMs2bKysdXC-zm8N1f3ECIyedok9-aErLjTjH0SLeeR8BmRsKYYr2-QzBjzLuAyN7gO-WdLLmwtpsuAjK5BoooA5E7XjZFiT5H-2bImnhAx9tN9k00/s800/9489.jpg' alt='Gambar Dompet SimpleC 1'/>
             </div>
             <div class='slider-item'>
-                <img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPFFhGV1MgGOoeNdUJ0HRCB_lGO-uEMHgxaq5mTkiK2X85QyZWJuNcxo19PVQ4zEW2TDU3fwNemKcQAQtCVQpeDUPVjxikdUaQXzh_5Yq5K8FVv07Jx2vIQ5OWvMGC1jFrSIGX2Fe0V4AuT3j_4Kn0pU3WQv6rRIPIIiDmdQL-BdBfetTlmHWD9BqCNrg/s800/9488.jpg' alt='Gambar Produk 3'/>
+                <img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPFFhGV1MgGOoeNdUJ0HRCB_lGO-uEMHgxaq5mTkiK2X85QyZWJuNcxo19PVQ4zEW2TDU3fwNemKcQAQtCVQpeDUPVjxikdUaQXzh_5Yq5K8FVv07Jx2vIQ5OWvMGC1jFrSIGX2Fe0V4AuT3j_4Kn0pU3WQv6rRIPIIiDmdQL-BdBfetTlmHWD9BqCNrg/s800/9488.jpg' alt='Gambar Dompet SimpleC 2'/>
             </div>
-
-             <div class='slider-item'>
-                <img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhD9msyiI95qk96R3ZHJHRZddkrJX4l-OTgRx6C2VSDoEY0BoudkJn9FIMdo-KUa2Jv1LJNhuJFWN-zxijTU5uRDlC3B4clMGdDHxpE95EvocRuz5DRscGSZRj1L3ikSYJCYKs2qyh8836EahNllJ1lyYY_EMXkrem_51lbVnA0YDd1Y15gNrgPX5ZGbGU/s320/9493.jpg' alt='Gambar Produk 1'/>
+            <div class='slider-item'>
+                <img src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhD9msyiI95qk96R3ZHJHRZddkrJX4l-OTgRx6C2VSDoEY0BoudkJn9FIMdo-KUa2Jv1LJNhuJFWN-zxijTU5uRDlC3B4clMGdDHxpE95EvocRuz5DRscGSZRj1L3ikSYJCYKs2qyh8836EahNllJ1lyYY_EMXkrem_51lbVnA0YDd1Y15gNrgPX5ZGbGU/s320/9493.jpg' alt='Gambar Dompet SimpleC 3'/>
             </div>
         </div>
         <div class='slider-indicator' id='sliderCounter'>1/3</div>
@@ -277,89 +242,73 @@
 
     <div class='detail-content'>
         <div class='product-header'>
-            <!-- Harga dan Judul diisi manual menggantikan data:post.labels.first.name dan data:post.title -->
-            <span class='detail-price'>Rp 35000</span> 
-            <h1 class='detail-title'>Promo 2 Dompet Bifold Classic Simple </h1>
+            <span class='detail-price'>Rp 35.000</span> 
+            <h1 class='detail-title'>Promo 2 Dompet Bifold Classic Simple (Minimalis &amp; Premium)</h1>
         </div>
 
         <div class='variant-section'>
             <div class='variant-title'>Tersedia Warna</div>
             <div class='variant-row'>
-                <!-- Pilihan Varian Statis - Klik di sini akan memicu AddToCart -->
                 <div class='variant-box' data-variant='Hitam'>Hitam</div>
                 <div class='variant-box active' data-variant='Coklat'>Coklat</div>
-                <div class='variant-box' data-variant='Biru'>Biru Navy</div>
+                
             </div>
         </div>
 
         <hr class='divider'/>
 
-        
         <div class='post-body' id='postBodyContent'>
             <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5WoHk6pz7R811ojgtTo9kloF5MqXHPYp6CVPPLSC6OeEWfbX1PaS8FQuva7zj8-Kmr5_VBlBfE7GWX0mSv_F7kZ46LJnCZXYBJ4Zc31DFPLnPV4BUeYk-tWuJe1UcqQqHheBCkNDu7kSLBD1A3iw22rlX5gP7prVopMeEWFgV9sZQbSNm80zzYGisCKU/s800/15025610661912722530.jpg" style="display: block; padding: 1em 0px; text-align: center;"><span style="text-align: left;">TAMPIL ELEGAN DENGAN DOMPET MINIMALIS PREMIUM&nbsp;</span></a></div><div>
-    <p>Ingin dompet yang terlihat mewah tapi harga tetap bersahabat? Dompet ini jawabannya! Terbuat dari <strong>kulit sintetis pilihan</strong> dengan tekstur kulit jeruk yang khas, memberikan kesan premium, tidak licin, dan sangat nyaman saat digenggam.</p>
-    <p>Desainnya yang <em>simple</em> dan <em>timeless</em> membuat dompet ini cocok untuk siapa saja—mulai dari pelajar, mahasiswa, hingga profesional. Sangat pas untuk pemakaian harian atau sebagai hadiah spesial.</p>
-
-    <hr />
-
-    <h3>Kenapa Anda Harus Memilih Dompet Ini?</h3>
-    <ul style="list-style-type: none; padding-left: 0px;">
-        <li>✅ <strong>Material Berkualitas:</strong> Kulit sintetis grade terbaik yang tidak mudah mengelupas.</li>
-        <li>✅ <strong>Jahitan Presisi:</strong> Dikerjakan dengan teliti, jahitan rapi dan sangat kuat.</li>
-        <li>✅ <strong>Slim &amp; Ringan:</strong> Desain tipis yang pas di saku celana, tidak mengganjal.</li>
-        <li>✅ <strong>Kapasitas Optimal:</strong> Muat uang kertas, koin, hingga 6 kartu ATM sekaligus.</li>
-        <li>✅ <strong>Multifungsi:</strong> Desain unisex yang cocok untuk Pria maupun Wanita.</li>
-    </ul>
-
-    <br />
-
-    <h3>📏 SPESIFIKASI PRODUK</h3>
-    <ul>
-        <li><strong>Material:</strong> Kulit Sintetis Premium (Tekstur Kulit Jeruk)</li>
-        <li><strong>Model:</strong> Bifold (Lipat Dua)</li>
-        <li><strong>Dimensi:</strong> 11 cm x 9.5 cm (Ukuran ideal saku)</li>
-        <li><strong>Berat:</strong> 80 gram (Sangat ringan)</li>
-    </ul>
-
-    <h3>📂 KAPASITAS PENYIMPANAN</h3>
-    <ul>
-        <li>2 Slot Uang Kertas (Luas &amp; Longgar)</li>
-        <li>6 Slot Kartu ATM/KTP/SIM</li>
-        <li>2 Slot Penyimpanan Koin/Struk</li>
-    </ul>
-
-    <br />
-
-    <h3>🎁 COCOK UNTUK SEGALA MOMEN</h3>
-    <p>Dompet harian, kado ulang tahun pasangan, souvenir kantor, hingga hadiah kelulusan.</p>
-
-    <hr />
-
-    <h3>🚚 INFORMASI PENGIRIMAN (CEPAT &amp; AMAN)</h3>
-    <ul>
-        <li>🕒 <strong>Order sebelum jam 14.00 WIB:</strong> Langsung dikirim di hari yang sama.</li>
-        <li>🕒 <strong>Order setelah jam 14.00 WIB:</strong> Dikirim keesokan harinya.</li>
-        <li>📦 <em>Packing dijamin aman dan rapi sampai tujuan.</em></li>
-    </ul>
-
-    <p style="font-size: 1.1em; text-align: center;"><strong>🔥 STOK TERBATAS! Segera check-out sekarang sebelum kehabisan!</strong></p>
-    
-    <p style="color: #666666; font-size: 0.8em;">
-        #dompetpria #dompetkulitsintetis #dompetmurah #dompetlipat #dompetpriahitam #dompetcowok #dompetkartu #dompetpriasimpel #dompetbifold #dompetfashion #dompetkeren #dompetpriawanita #aksesorispria #dompetkerja #dompetkulit #kadocowok #souvenirkantor
-    </p>
-</div>
- </div>
-    </div>
+            <p>Ingin dompet yang terlihat mewah tapi harga tetap bersahabat? Dompet ini jawabannya! Terbuat dari <strong>kulit sintetis pilihan</strong> dengan tekstur kulit jeruk yang khas, memberikan kesan premium, tidak licin, dan sangat nyaman saat digenggam.</p>
+            <p>Desainnya yang <em>simple</em> dan <em>timeless</em> membuat dompet ini cocok untuk siapa saja—mulai dari pelajar, mahasiswa, hingga profesional. Sangat pas untuk pemakaian harian atau sebagai hadiah spesial.</p>
+            <hr /> 
+            <h3>Kenapa Anda Harus Memilih Dompet Ini?</h3> 
+            <ul style="list-style-type: none; padding-left: 0px;"> 
+                <li>✅ <strong>Material Berkualitas:</strong> Kulit sintetis grade terbaik yang tidak mudah mengelupas.</li> 
+                <li>✅ <strong>Jahitan Presisi:</strong> Dikerjakan dengan teliti, jahitan rapi dan sangat kuat.</li> 
+                <li>✅ <strong>Slim &amp; Ringan:</strong> Desain tipis yang pas di saku celana, tidak mengganjal.</li> 
+                <li>✅ <strong>Kapasitas Optimal:</strong> Muat uang kertas, koin, hingga 6 kartu ATM sekaligus.</li> 
+                <li>✅ <strong>Multifungsi:</strong> Desain unisex yang cocok untuk Pria maupun Wanita.</li> 
+            </ul> 
+            <br /> 
+            <h3>📏 SPESIFIKASI PRODUK</h3> 
+            <ul> 
+                <li><strong>Material:</strong> Kulit Sintetis Premium (Tekstur Kulit Jeruk)</li> 
+                <li><strong>Model:</strong> Bifold (Lipat Dua)</li> 
+                <li><strong>Dimensi:</strong> 11 cm x 9.5 cm (Ukuran ideal saku)</li> 
+                <li><strong>Berat:</strong> 80 gram (Sangat ringan)</li> 
+            </ul> 
+            <h3>📂 KAPASITAS PENYIMPANAN</h3> 
+            <ul> 
+                <li>2 Slot Uang Kertas (Luas &amp; Longgar)</li> 
+                <li>6 Slot Kartu ATM/KTP/SIM</li> 
+                <li>2 Slot Penyimpanan Koin/Struk</li> 
+            </ul> 
+            <br /> 
+            <h3>🎁 COCOK UNTUK SEGALA MOMEN</h3> 
+            <p>Dompet harian, kado ulang tahun pasangan, souvenir kantor, hingga hadiah kelulusan.</p> 
+            <hr /> 
+            <h3>🚚 INFORMASI PENGIRIMAN (CEPAT &amp; AMAN)</h3> 
+            <ul> 
+                <li>🕒 <strong>Order sebelum jam 14.00 WIB:</strong> Langsung dikirim di hari yang sama.</li> 
+                <li>🕒 <strong>Order setelah jam 14.00 WIB:</strong> Dikirim keesokan harinya.</li> 
+                <li>📦 <em>Packing dijamin aman dan rapi sampai tujuan.</em></li> 
+            </ul> 
+            <p style="font-size: 1.1em; text-align: center;"><strong>🔥 STOK TERBATAS! Segera check-out sekarang sebelum kehabisan!</strong></p> 
+            <p style="color: #666666; font-size: 0.8em;"> #dompetpria #dompetkulitsintetis #dompetmurah #dompetlipat #dompetpriahitam #dompetcowok #dompetkartu #dompetpriasimpel #dompetbifold #dompetfashion #dompetkeren #dompetpriawanita #aksesorispria #dompetkerja #dompetkulit #kadocowok #souvenirkantor </p> 
+            </div> 
+        </div>
+    </div> 
     
     <!-- Sticky Footer Shopee Style -->
     <div class='sticky-footer'>
-        <!-- ID chatButton ditambahkan untuk tracking Pixel -->
-        <a class='chat-btn' id='chatButton' href='https://wa.me/6283832108529?text=Halo,%20saya%20mau%20bertanya%20tentang%20produk%20[Nama%20Produk%20Anda].' target='_blank'>
+        <!-- Link Chat WA dengan produk Dompet -->
+        <a class='chat-btn' id='chatButton' href='https://wa.me/6283832108529?text=Halo,%20saya%20mau%20bertanya%20tentang%20Dompet%20Bifold%20Classic%20Simple.' target='_blank'>
             <span class='material-icons' style='font-size:20px;'>chat</span>
             <span>Chat</span>
         </a>
-        <!-- ID buyButton sudah ada, tautan WA diperbarui -->
-        <a class='btn-buy' id='buyButton' href='https://wa.me/6283832108529?text=Halo,%20saya%20mau%20beli%20Tas%20Selempang%20Pria%20Warna%20Coklat.' target='_blank'>
+        <!-- Link Beli Sekarang, akan diperbarui oleh JS -->
+        <a class='btn-buy' id='buyButton' href='https://wa.me/6283832108529?text=Halo,%20saya%20mau%20beli%20Dompet%20Bifold%20Classic%20Simple%20Warna%20Coklat.' target='_blank'>
             Beli Sekarang
         </a>
     </div>
@@ -370,22 +319,23 @@
             var sliderContainer = document.getElementById('productSlider');
             var counter = document.getElementById('sliderCounter');
             var buyButton = document.getElementById('buyButton');
-            var chatButton = document.getElementById('chatButton'); 
+            var chatButton = document.getElementById('chatButton');
             var variantBoxes = document.querySelectorAll('.variant-box');
             
-            // Variabel Konfigurasi
+            // Variabel Konfigurasi Diperbarui
             const waNumber = '6283832108529'; 
-            const productName = 'Tas Selempang Pria';
+            const productName = 'Dompet Bifold Classic Simple'; // <-- FIX 2: Nama produk di JS
+            const productPrice = 35000.00; // <-- Harga di JS
+            
             const pixelProductData = {
                 content_name: productName,
-                value: 125000.00, 
+                value: productPrice, // <-- FIX 2: Harga produk di JS
                 currency: 'IDR',
-                content_ids: ['SKU-TS-001'],
+                content_ids: ['SKU-DB-002'],
                 content_type: 'product'
             };
 
-
-            // --- Logika Slider Sederhana (TIDAK BERUBAH) ---
+            // --- Logika Slider Sederhana ---
             var imgArray = sliderContainer.querySelectorAll('.slider-item');
             var totalSlides = imgArray.length;
 
@@ -407,7 +357,7 @@
             }
 
             // --- LOGIKA VARIAN DAN ADD TO CART ---
-            let selectedVariant = 'Coklat'; 
+            let selectedVariant = 'Coklat'; // Varian default (yang 'active')
 
             variantBoxes.forEach(box => {
                 box.addEventListener('click', function() {
@@ -417,10 +367,11 @@
                     selectedVariant = this.getAttribute('data-variant');
                     
                     // 1. Update Tautan Beli Sekarang
+                    // FIX 3: Gunakan productName yang benar untuk link WA
                     var waText = encodeURIComponent(`Halo, saya mau beli ${productName} Warna ${selectedVariant}.`);
                     buyButton.href = `https://wa.me/${waNumber}?text=${waText}`;
 
-                    // 2. TRACKING BARU: AddToCart (Ditembakkan saat varian dipilih)
+                    // 2. TRACKING: AddToCart (Ditembakkan saat varian dipilih)
                     if (typeof fbq === 'function') {
                         fbq('track', 'AddToCart', pixelProductData);
                         console.log(`Pixel Event: AddToCart Fired. (Varian ${selectedVariant} Dipilih)`);
@@ -429,6 +380,7 @@
             });
 
              // Panggil sekali saat dimuat untuk mengatur link default dan memicu AddToCart pertama
+             // Ini akan memicu event AddToCart pertama kali saat halaman dimuat
              document.querySelector('.variant-box.active')?.click(); 
 
             // --- LOGIKA TRACKING PIXEL BUTTONS ---
@@ -436,7 +388,6 @@
             // 1. Tracking Tombol Chat (Contact)
             if (chatButton) {
                 chatButton.addEventListener('click', function() {
-                    // Memicu event 'Contact' (Kontak)
                     if (typeof fbq === 'function') {
                         fbq('track', 'Contact', pixelProductData);
                         console.log("Pixel Event: Contact (Chat) Fired.");
@@ -447,7 +398,6 @@
             // 2. Tracking Tombol Beli Sekarang (InitiateCheckout)
             if (buyButton) {
                 buyButton.addEventListener('click', function() {
-                    // Memicu event 'InitiateCheckout' (Memulai Checkout)
                     if (typeof fbq === 'function') {
                         fbq('track', 'InitiateCheckout', pixelProductData);
                         console.log("Pixel Event: InitiateCheckout (Beli Sekarang) Fired.");
